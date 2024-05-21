@@ -14,6 +14,10 @@ export default defineConfig({
 					label: 'Anti advice',
 					autogenerate: { directory: 'anti' },
 				},
+				{
+					label: 'South Africa',
+					autogenerate: { directory: 'south-africa' },
+				},
 			],
 		}),
 	],
