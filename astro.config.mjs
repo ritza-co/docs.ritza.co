@@ -3,20 +3,34 @@ import starlight from '@astrojs/starlight';
 
 // https://astro.build/config
 export default defineConfig({
+    site: 'https://docs.ritza.co',
 	integrations: [
 		starlight({
-			title: 'EMEA Entrepreneurs',
+			title: 'Ritza Documentation',
+            head: [
+                {
+                  tag: 'script',
+                  attrs: {
+                    src: 'https://plausible.io/js/script.js',
+                    'data-domain': 'docs.ritza.co',
+                    defer: true
+                  }
+            }],
 			social: {
-				github: 'https://github.com/emeatech/',
+				github: 'https://github.com/ritza-co/docs.ritza.co/',
 			},
 			sidebar: [
 				{
-					label: 'Anti advice',
-					autogenerate: { directory: 'anti' },
+					label: 'Getting started',
+					autogenerate: { directory: 'getting-started' },
 				},
 				{
-					label: 'South Africa',
-					autogenerate: { directory: 'south-africa' },
+					label: 'How to',
+					autogenerate: { directory: 'how-tos' },
+				},
+				{
+					label: 'Reference',
+					autogenerate: { directory: 'reference' },
 				},
 			],
 		}),
