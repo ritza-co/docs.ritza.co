@@ -2,7 +2,7 @@
 
 <p align="center">
   <a href="https://ritza.co">
-    <img alt="Ritza Logo" title="Ritza" src="./logo.png" width="400">
+    <img alt="Ritza Logo" title="Ritza" src="./logo.png" width="100">
   </a>
 </p>
 
