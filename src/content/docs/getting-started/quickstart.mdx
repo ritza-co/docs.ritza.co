@@ -137,23 +137,38 @@ We like using a separate repository because it keeps you nimble, and doesn't tie
 
 ## Deploy it
 
-You'll likely already know how to deploy a static site somewhere. Use that method. If you don't, you can use GitHub pages by following [this guide](#).
+You'll likely already know how to deploy a static site somewhere. Use that method. If you don't, you can deploy it to Render (which allows static sites like this one on their free tier) by following our guide [Deploying your documentation site to Render])
 
 ## Add a domain
 
 Create the subdomain `docs.example.com` (change example.com to your actual domain) in your DNS provider and point it to the site.
 
-Set up HTTPS if that's not already done.
-
 See [subdomain or subfolder](#) for some more information about the tradeoff here.
 
 ## Add analytics
 
-Set up [Plausible](http://plausible.io) to track basic analytics so you know if people are actually reading your documentation and which pages are the most popular.
+You'll probably want to know how many people visit your documentation site, and which pages are used the most.
+
+1. Create a new project on your analytics provider, such as Plausible or Google Analytics and copy the JavaScript snippet that you're given.
+2. add the JavaScript to the Astro configuration as a `scripts` tag in the `head` section. If you followed the example above, you'll already have done this part for Plausible.
 
 We like Plausible because you don't need to add annoying cookie banner warnings, it's much easier to use than Google Analytics, and it's easy to export the data when you need.
 
-See [choose an analytics solution](#) for more information about the tradeoffs here.
+See [choose an analytics solution](#) for more information about other options for this.
+
+## Where next?
+
+Now you've got a basic documentation site up and running, and you can get back to your launch. 
+
+There's still a lot you can add. We're adding more to this one too, to cover things like 
+
+* How to manage images and other assets
+* How to take great screenshots
+* How to set up preview environments
+* Lots more!
+
+Feel free to reach out if you want to talk about technical documentation or need help producing it.
+
 
 
 
