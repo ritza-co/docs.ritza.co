@@ -1,40 +1,60 @@
 ---
-title: How to deploy to Render 
+title: How to deploy your Astro Starlight documentation to Render 
 ---
 
-You'll probably want to know how many people are using your technical documentation and which pages they are using the most. 
+There are many options to deploy your site, but Render offers a free plan for static sites that includes free preview environments and a free CDN, so it's a great option if you don't already have a favourite way to deploy static sites.
 
-You might also want to track events. Especially if you regard your documentation as part of your sales funnel, you'll want to track how many people end up navigating from specific documentation pages to your sign up or demo page on your marketing site.
+Here we'll cover how to deploy the documentation repository that we showed you how to set up in the [quickstart](/quickstart) to Render. If you prefer, you can just use [the repository from the site you're on right now](https://github.com/ritza-co/docs.ritza.co). 
 
-Some people choose to also track usage more closely, including watching people's mouse movements and scroll actions on each specific page. We find this creepy, but we'll include some guidance about that too in case you need it.
+At the end, you'll have your documentation site running on a custom domain.
 
-## Choosing an analytics platform
+![Deployed](../../../assets/screenshots/deployed.png)
 
-Our favourite analytics platform is [Plausible](http://plausible.io). It's much simpler than Google Analytics, but powerful enough to still give you everything you need. This for us is mainly
+## 1. Create a new project on Render
 
-* Total Page views (so you can count the total number of times that your documentation site gets visited)
-* Total User views (so you can see how many unique people visit your documentation site)
-* Views and Users per page (so you can see which of your pages are the most popular)
-* Different time segments (e.g. views per week for the last 12m months) 
-* Goals/Events (e.g., user visited your demo page or downloaded an ebook)
+Sign up at Render.com if you don't already have an account.
 
-You can either pay Plausible to host it for you, or host the community edition yourself for free. 
+On the dashboard do the following:
 
-This is what a dasboard looks like 
+1. Click "New"
+2. Choose "Static Site"
+3. Go to the "Public Git Repository" tab (or you can choose "Git Provider" and link your GitHub account if your docs repository is private)
+4. In the input paste the URL of your GitHub project (or use `https://github.com/ritza-co/docs.ritza.co` if you just want to test it out)
+5. Press "Connect"
 
-![Plausible dashboard](../../../assets/screenshots/plausible.png)
+![Create a Render project](../../../assets/screenshots/create.png)
 
-Instead of Plausible you might go with 
+## 2. Configure the new Render project
 
-* Google Analytics - this has the most features, but it's counter-intuitive to use, and they have a nasty habit of making breaking changes between releases (e.g. recently they made people upgrade from Universal Analytics to Google Analytics 4 but didn't provide a way to migrate data so users couldn't compare historical statistics). It's a good choice if you need to integrate into other Google products (like Google ads), or if you're used to its quirks already and don't want to learn something new.
-* Simple Analytics - very comparable to Plausible, but not open source.
+1. Under "Name" call your project something like "Acme Docs" (change to your own company's name)
+2. Leave the git branch as "main" or change this if your repository uses a different branch name
+3. Under build command add `pnpm install sharp && pnpm astro build` (only the second part should be necessary but we got a build error about sharp not being installed without this)
+4. Add `dist` as the publish directory (this is where Astro builds the site to by default, so Render will serve the HTML content from this location and ignore your markdown source files after the build is complete)
 
-## Configuring your analytics platform
+![Configure](../../../assets/screenshots/configure.png)
 
+Leave the other options as the defaults provided and press "Deploy Static Site" at the bottom of the page.
 
+![Deploy](../../../assets/screenshots/deploy.png)
 
+## 3. Build and test your project
 
+On the next page, Render will automatically start building your project. Give it a minute or two, and you should see a "Your site is live" message indicating success. 
 
+Navigate to the 'onrender.com' url provided and check that everything is working as expected.
 
+![Build success](../../../assets/screenshots/build-success.png)
+
+## 4. Add a custom domain
+
+You probably don't want your visitors to have to visit a domain like `acme-docs.onrender.com`.
+
+Navigate to "Settings" in the left sidebar, scroll down to the "Custom Domains" section, and add a subdomain to your main domain. 
+
+In your DNS provider (for example, Namecheap, AWS Route S3, or Cloudflare), add the CNAME that Render gives you.
+
+![Custom domain](../../../assets/screenshots/custom-domain.png)
+
+Wait for a bit (DNS is slow) and you should be able to visit your documentation site at your chosen subdomain.
 
 
