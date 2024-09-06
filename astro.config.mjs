@@ -29,8 +29,12 @@ export default defineConfig({
 					autogenerate: { directory: 'how-tos' },
 				},
 				{
-					label: 'Reference',
-					autogenerate: { directory: 'reference' },
+					label: 'Concepts',
+					autogenerate: { directory: 'concepts' },
+				},
+				{
+					label: 'FAQ',
+					autogenerate: { directory: 'faq' },
 				},
 			],
 		}),

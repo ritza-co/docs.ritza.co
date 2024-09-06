@@ -1,0 +1,12 @@
+---
+title: Repository structure 
+---
+
+There are some benefits to having your documentation live as a subfolder in a mono-repo that also contains your application code, but in nearly all cases we think that the limitations of this approach outway the benefits.
+
+Rather keep your documentation in its own repository. This gives you the flexibility of having different internal teams and external contributors work on your documentation without needing to share your (probably more sensitive) code repository. It also keeps your documentation repository lighter so it's easier for less-technical team members to clone your documentation, build or preview it, and contribute improvements.
+
+Call your docs repository something like `acme-docs` rather than `docs`, so that when people fork it to contribute changes they know what it is.
+
+If possible, make it public and include an 'edit this page' button on each page.
+
